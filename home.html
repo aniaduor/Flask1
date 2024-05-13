@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Visual Pro</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="home">Home</a></li>
+                    <!--<li><a href="#">About</a></li>-->
+                    <li><a href="recentgraphs">Recent Graphs</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <div class="content">
+            <h1>data visualization <br><span> anomaly detection</span> <br> correction</h1>
+            <p class="par">Welcome to VISUAL PRO, where data visualization meets anomaly detection and correction!<br> We understand the power of data and the challenges that come with managing and interpreting it effectively.<br> Our platform offers a seamless solution for visualizing data extracted from Excel spreadsheets,<br> along with advanced algorithms to detect anomalies and even correct them whenever possible.</p>
+    {% if username %}
+    <p class="homelogin"> hello, {{username}}! you are already logged in.</p>
+    <a href="/logout">Logout</a>
+    {%else%}
+    <p class="homelogin">you are not logged in. please <a href="/login">Login</a> to access the home page.</p>
+    {%endif%}
+            <!--<button class="cn"><a href="#">LOGIN</a></button>--> 
+    </div>
+
+
+</div>
+</body>
+</html>

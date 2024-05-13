@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Pro - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Visual Pro</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="home">Home</a></li>
+                    <!--<li><a href="#">About</a></li>-->
+                    <li><a href="recentgraphs">Recent Graphs</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+  
+<section class="h-section">
+  <div class="content">
+    <!--<h1>Upload cvs file</h1>-->
+    <!--<div class="green-box"  >-->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="upload-container">
+        <input type="file" name="file" class="upload-box">
+        <button type="submit">Upload</button>
+        </div>
+       
+    </form>
+    <!--</div>-->
+  </div>
+  </div>
+</section>
+
+
+<nav>
+    <div class="dropdown">
+      <div class="Daily">
+        <button>Daily</button>
+        <ul>
+          <li><a href="#">Daily</a></li>
+          <li><a href="#">Monthly</a></li>
+          <li><a href="#">Hourly</a></li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+
+
+
+<div class="plott">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+     <div class="plot-html-wrapper">
+         {% if plot_html_monthly %}
+             {{ plot_html_monthly | safe }}
+         {% endif %}
+     </div>
+     <div class="plot-html-wrapper">
+         {% if plot_html_daily %}
+             {{ plot_html_daily | safe }}
+         {% endif %}
+     </div>
+     <div class="plot-html-wrapper">
+         {% if plot_html_hourly %}
+             {{ plot_html_hourly | safe }}
+         {% endif %}
+     </div>
+    </form>
+ </div>
+</body>
+</html>
